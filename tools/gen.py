@@ -21,7 +21,7 @@ def page(slug,title,desc,body,sheet=False):
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{BASE}{slug+'/' if slug else ''}">
 <link rel="icon" type="image/svg+xml" href="{p}assets/img/favicon.svg">
-<meta name="theme-color" content="#2f5d3a">
+<meta name="theme-color" content="#0b3d2e">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">

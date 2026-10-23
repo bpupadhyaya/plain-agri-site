@@ -33,15 +33,13 @@ def page(slug,title,desc,body,sheet=False,scripts=""):
 <a class="skip" href="#main">Skip to content</a>
 <nav aria-label="Main"><div class="nav-inner">
 <a href="{p or './'}" class="nav-logo"><img src="{p}assets/img/favicon.svg" alt="" width="32" height="32"><span>PlainAgri</span></a>
-<ul class="nav-links">{nav}</ul></div></nav>
+<ul class="nav-links">{nav}</ul><button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">&#9776;</button></div></nav>
 <main id="main">
 {body}
 </main>
-<footer><div class="wrap"><div class="cols">
-<div><b>PlainAgri</b><p><small>Plan what to grow, where you are, with the resources around you. Any climate. Any scale.</small></p></div>
-<div><b>Site</b><br><a href="{p}how-it-works/">How it works</a><br><a href="{p}features/">Features</a><br><a href="{p}try/">Try it</a><br><a href="{p}sample-plan/">Sample plan</a><br><a href="{p}pricing/">Pricing</a></div>
-<div><b>Help</b><br><a href="{p}support/">Support</a><br><a href="{p}privacy/">Privacy</a><br><a href="{p}about/">About</a></div>
-</div><p><small>PlainAgri is general educational information, not a substitute for local agricultural advice or product labels. Always check local regulations before using any chemical input. &copy; EqualInformation LLC.</small></p></div></footer>
+<footer><details class="footer-dock"><summary><span class="dock-links"><a href="{p or './'}">Home</a><a href="{p}privacy/">Privacy</a><a href="{p}support/">Support</a></span><span class="dock-copy">&copy; 2026 EqualInformation, LLC</span><span class="dock-more">More</span></summary>
+<div class="footer-inner"><ul class="footer-links"><li><a href="{p}how-it-works/">How it works</a></li><li><a href="{p}features/">Features</a></li><li><a href="{p}try/">Try it</a></li><li><a href="{p}scales/">Scales</a></li><li><a href="{p}climates/">Climates</a></li><li><a href="{p}sample-plan/">Sample plan</a></li><li><a href="{p}pricing/">Pricing</a></li><li><a href="{p}about/">About</a></li><li><a href="{p}privacy/">Privacy Policy</a></li><li><a href="{p}support/">Support</a></li><li><a href="https://equalinformation.com" target="_blank" rel="noopener">EqualInformation</a></li></ul>
+<p class="footer-copy">PlainAgri is general educational information, not a substitute for local agricultural advice or product labels. Always check local regulations before using any chemical input. &copy; 2026 EqualInformation, LLC.</p></div></details></footer>
 {SHEET if sheet else ''}
 {''.join('<script src="'+p+'assets/js/'+x+'" defer></script>' for x in scripts.split())}
 <script src="{p}assets/js/site.js" defer></script>

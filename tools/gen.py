@@ -196,13 +196,13 @@ page("privacy","Privacy","PlainAgri has no accounts, no analytics and no ad trac
 <h2>The app</h2><ul class="tick"><li>No accounts and no sign-in.</li><li>No analytics, advertising or crash-reporting services.</li><li>Your location is used on your device to find your nearest reference place and is not sent to us.</li><li>Your profile, saved plans and bookmarks stay on your device.</li><li>The only network use planned for the first release is opening a source when you tap a citation, and your store handling subscriptions.</li></ul>
 <h2>This website</h2><p>This site sets no cookies and uses no analytics, trackers or third-party fonts or scripts.</p>
 <h2>Subscriptions</h2><p>Payments are processed by Apple or Google. We do not receive your payment details.</p>
-<h2>Contact</h2><p><a href="mailto:contact@equalinformation.com?subject=PlainAgri%20Privacy">contact@equalinformation.com</a></p>
+<h2>Contact</h2><p><a href="mailto:privacy@equalinformation.com?subject=PlainAgri%20Privacy">privacy@equalinformation.com</a></p>
 <p class="est">This page describes the planned first release and will be updated if that changes.</p></div></section>''')
 
 # ---------- support ----------
 page("support","Support","Get help or send feedback about PlainAgri.",f'''
 <section class="hero"><div class="wrap"><h1>Support</h1><p class="lead">The app is not released yet. Questions and feedback are welcome now.</p></div></section>
-<section><div class="wrap"><p><a class="btn" href="mailto:contact@equalinformation.com?subject=PlainAgri%20Feedback">Email us</a></p>
+<section><div class="wrap"><p><a class="btn" href="mailto:support@equalinformation.com?subject=PlainAgri%20Feedback">Email us</a></p>
 <h2>Common questions</h2>
 <h3>Does it work offline?</h3><p>That is the design: the baseline library and plan are meant to work without signal.</p>
 <h3>Is the advice a substitute for a local expert?</h3><p>No. PlainAgri is general information. Confirm timings and any chemical use with local extension services and product labels.</p>

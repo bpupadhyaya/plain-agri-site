@@ -81,6 +81,17 @@ page("","PlainAgri: Tell us where you are. We plan the rest.","PlainAgri designs
 {ladder()}
 <p><a href="scales/">More on the scales &rarr;</a></p></div></section>
 
+
+<section class="alt"><div class="wrap"><h2>See it in the app</h2>
+<p class="lead">Real screens from the first-release build on iPhone and Android. These are a taste: the full plan, the whole library and saved plans are in the app.</p>
+<div class="shots">
+<figure><div class="phone"><img src="assets/img/app/plan.jpg" alt="PlainAgri plan screen for Nairobi showing climate zone, setup and plan sections" loading="lazy"></div><figcaption>Your place, your setup, your plan</figcaption></figure>
+<figure><div class="phone"><img src="assets/img/app/crops.jpg" alt="PlainAgri what to grow here screen" loading="lazy"></div><figcaption>Crops that suit your climate</figcaption></figure>
+<figure><div class="phone"><img src="assets/img/app/machinery.jpg" alt="PlainAgri guidance for machinery scale" loading="lazy"></div><figcaption>Methods that match your scale</figcaption></figure>
+<figure><div class="phone"><img src="assets/img/app/sources.jpg" alt="PlainAgri in-app source viewer opened at 80 percent height" loading="lazy"></div><figcaption>Every source opens in the app</figcaption></figure>
+<figure><div class="phone android"><img src="assets/img/app/android-water.jpg" alt="PlainAgri on Android, water section" loading="lazy"></div><figcaption>The same plan on Android</figcaption></figure>
+</div></div></section>
+
 <section><div class="wrap"><h2>Any climate, anywhere</h2>
 <p class="lead">Tropical rainforest to cold continental winters, arid deserts to mountain gardens. Your place resolves to its climate zone, and the advice changes with it.</p>
 <p><a href="climates/">Explore the climate zones &rarr;</a></p></div></section>
@@ -130,7 +141,7 @@ page("climates","Any climate: explore the zones","PlainAgri maps your place to i
 # ---------- sample plan ----------
 page("sample-plan","Sample plan: a small plot near Nairobi","A sample PlainAgri plan for a hand-tool plot near Nairobi, Kenya, to show what the app produces. The full library lives in the app.",f'''
 <section class="hero"><div class="wrap"><span class="eyebrow">Sample plan</span><h1>A plot near Nairobi, Kenya</h1>
-<p class="lead">An illustration of the format the first release is being built to produce. Place: Nairobi (highland, temperate oceanic climate, elevation around 1,800 m). Purpose: food for a household. Scale: hand tools. Water: rain only.</p>
+<p class="lead">An illustration of the format the first release is being built to produce. Place: Nairobi (subtropical highland climate with a dry winter, elevation around 1,800 m). Purpose: food for a household. Scale: hand tools. Water: rain only.</p>
 <p><span class="pill">Illustrative sample</span> <span class="pill">Not for site-specific decisions</span></p></div></section>
 <section><div class="wrap">
 <div class="note"><b>This is a sample.</b> It shows the shape and tone of a plan. A real plan is built from the content library for your exact place, and it includes every section in full, with citations that open in the app. Local conditions vary; confirm timings with a local extension office.</div>

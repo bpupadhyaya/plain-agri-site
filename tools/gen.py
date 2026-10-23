@@ -27,7 +27,7 @@ def page(slug,title,desc,body,sheet=False,scripts=""):
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PlainAgri">
 <link rel="stylesheet" href="{p}assets/fonts/inter.css">
-<link rel="stylesheet" href="{p}assets/css/style.css">
+<link rel="stylesheet" href="{p}assets/css/style.css?v=2">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

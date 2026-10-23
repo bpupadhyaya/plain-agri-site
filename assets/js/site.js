@@ -12,7 +12,8 @@
     var body=sheet.querySelector('.sheet-body'), ttl=sheet.querySelector('.sheet-title'),
         bBack=sheet.querySelector('[data-act=back]'), bFwd=sheet.querySelector('[data-act=fwd]'), bClose=sheet.querySelector('[data-act=close]');
     var hist=[], pos=-1, opener=null;
-    function render(){var d=DOCS[hist[pos]];body.innerHTML=d.html;ttl.textContent=d.host;bBack.disabled=pos<=0;bFwd.disabled=pos>=hist.length-1;body.scrollTop=0;}
+    function getDoc(id){if(id.indexOf('src:')===0&&window.PA_DATA){var r=window.PA_DATA.sources[id.slice(4)];if(r){var host=''; try{host=new URL(r.url).hostname}catch(e){} return {host:host||'Source',title:r.title,html:'<h2>'+r.title+'</h2><p><b>'+(r.publisher||'Source')+'</b></p><p>In the app this source opens right here, inside the sheet. On this demo page you can open it in a new tab:</p><p><a href="'+r.url+'" target="_blank" rel="noopener">Open the source in a new tab &rarr;</a></p><p class="est">'+r.url+'</p>'};}}return DOCS[id]||{host:'Source',title:'Source',html:'<p>Source not found.</p>'};}
+    function render(){var d=getDoc(hist[pos]);body.innerHTML=d.html;ttl.textContent=d.host;bBack.disabled=pos<=0;bFwd.disabled=pos>=hist.length-1;body.scrollTop=0;}
     function open(id,from){opener=from||null;hist=[id];pos=0;render();back.classList.add('open');sheet.classList.add('open');sheet.setAttribute('aria-hidden','false');bClose.focus();}
     function close(){sheet.classList.remove('open');back.classList.remove('open');sheet.setAttribute('aria-hidden','true');if(opener)opener.focus();}
     document.addEventListener('click',function(e){

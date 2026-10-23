@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Try it: calculators, diagnosis and zoom</title>
+<meta name="description" content="Try PlainAgri in your browser: two real calculators, a real diagnosis walk-through and the text zoom. The app has the full library.">
+<link rel="canonical" href="https://equalinformation.com/plain-agri-site/try/">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<meta name="theme-color" content="#0b3d2e">
+<meta property="og:title" content="Try it: calculators, diagnosis and zoom">
+<meta property="og:description" content="Try PlainAgri in your browser: two real calculators, a real diagnosis walk-through and the text zoom. The app has the full library.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlainAgri">
+<link rel="stylesheet" href="../assets/fonts/inter.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Main"><div class="nav-inner">
+<a href="../" class="nav-logo"><img src="../assets/img/favicon.svg" alt="" width="32" height="32"><span>PlainAgri</span></a>
+<ul class="nav-links"><li><a href="../how-it-works/">How it works</a></li><li><a href="../features/">Features</a></li><li><a href="../try/" aria-current="page">Try it</a></li><li><a href="../scales/">Scales</a></li><li><a href="../climates/">Climates</a></li><li><a href="../sample-plan/">Sample plan</a></li><li><a href="../pricing/">Pricing</a></li><li><a href="../about/">About</a></li></ul></div></nav>
+<main id="main">
+
+<section class="hero"><div class="wrap"><span class="eyebrow">Try it</span><h1>A taste of the app.</h1>
+<p class="lead">These are working samples of three things in PlainAgri. Source chips open a viewer sheet, just like in the app. The app has the rest: nine calculators, 38 diagnoses, the plan for your exact place and the full library.</p></div></section>
+
+<section id="calculators"><div class="wrap"><h2>Two calculators</h2><div class="card" id="calc-demo" aria-live="polite"></div></div></section>
+
+<section class="alt" id="diagnose"><div class="wrap"><h2>Walk a diagnosis: leaves turning yellow</h2><p class="lead">This is one of the three free walk-throughs. Pick what matches what you see.</p><div class="card" id="diag-demo"></div></div></section>
+
+<section id="zoom"><div class="wrap"><h2>Text zoom, 50 to 300 percent</h2>
+<p class="lead">The app has this on every screen. Here is a small mock-up: change the size and watch the text and even the tab bar follow. The percentage always shows where you are.</p>
+<div class="zframe" id="zoom-demo"><div class="zview" tabindex="0" aria-label="Sample plan text that scales">
+<div class="zbar"><button type="button" data-z="minus" aria-label="Smaller text">A-</button><button type="button" class="zpct" aria-label="Reset text size to 100 percent">100%</button><button type="button" data-z="plus" aria-label="Larger text">A+</button></div>
+<h3>Your plan</h3><p>Nairobi, Kenya. Rain-fed, hand tools, food for a household.</p><p>Plant maize and beans at the start of the long rains, and mulch to keep the soil moist between showers.</p></div>
+<div class="ztabs" aria-hidden="true"><span>Plan</span><span>Learn</span><span>Saved</span><span>About</span></div></div>
+<p class="est">Demo only: it changes this mock-up, not the page.</p></div></section>
+
+</main>
+<footer><div class="wrap"><div class="cols">
+<div><b>PlainAgri</b><p><small>Plan what to grow, where you are, with the resources around you. Any climate. Any scale.</small></p></div>
+<div><b>Site</b><br><a href="../how-it-works/">How it works</a><br><a href="../features/">Features</a><br><a href="../try/">Try it</a><br><a href="../sample-plan/">Sample plan</a><br><a href="../pricing/">Pricing</a></div>
+<div><b>Help</b><br><a href="../support/">Support</a><br><a href="../privacy/">Privacy</a><br><a href="../about/">About</a></div>
+</div><p><small>PlainAgri is general educational information, not a substitute for local agricultural advice or product labels. Always check local regulations before using any chemical input. &copy; EqualInformation LLC.</small></p></div></footer>
+<div class="sheet-back"></div>
+<div class="sheet" role="dialog" aria-modal="true" aria-label="Source viewer (demo)" aria-hidden="true">
+<div class="sheet-grab"></div>
+<div class="sheet-bar"><button data-act="back" aria-label="Back" disabled>&larr; Back</button><button data-act="fwd" aria-label="Forward" disabled>Forward &rarr;</button><div class="sheet-title"></div><button data-act="close" aria-label="Close source viewer">Close</button></div>
+<div class="sheet-body"></div></div>
+<script src="../assets/js/demo-data.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/demos.js" defer></script>
+</body></html>

@@ -1,14 +1,14 @@
 import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE="https://equalinformation.com/plain-agri-site/"
-NAV=[("how-it-works","How it works"),("scales","Scales"),("climates","Climates"),("sample-plan","Sample plan"),("pricing","Pricing"),("about","About")]
+NAV=[("how-it-works","How it works"),("features","Features"),("try","Try it"),("scales","Scales"),("climates","Climates"),("sample-plan","Sample plan"),("pricing","Pricing"),("about","About")]
 SOON='<div class="badges"><div class="badge"><b>App Store</b>Coming soon</div><div class="badge"><b>Google Play</b>Coming soon</div></div>'
 SHEET='''<div class="sheet-back"></div>
 <div class="sheet" role="dialog" aria-modal="true" aria-label="Source viewer (demo)" aria-hidden="true">
 <div class="sheet-grab"></div>
 <div class="sheet-bar"><button data-act="back" aria-label="Back" disabled>&larr; Back</button><button data-act="fwd" aria-label="Forward" disabled>Forward &rarr;</button><div class="sheet-title"></div><button data-act="close" aria-label="Close source viewer">Close</button></div>
 <div class="sheet-body"></div></div>'''
-def page(slug,title,desc,body,sheet=False):
+def page(slug,title,desc,body,sheet=False,scripts=""):
     d=0 if slug=="" else 1
     p="" if d==0 else "../"
     nav="".join('<li><a href="%s%s/"%s>%s</a></li>'%(p,s,' aria-current="page"' if s==slug else '',t) for s,t in NAV)
@@ -39,11 +39,13 @@ def page(slug,title,desc,body,sheet=False):
 </main>
 <footer><div class="wrap"><div class="cols">
 <div><b>PlainAgri</b><p><small>Plan what to grow, where you are, with the resources around you. Any climate. Any scale.</small></p></div>
-<div><b>Site</b><br><a href="{p}how-it-works/">How it works</a><br><a href="{p}sample-plan/">Sample plan</a><br><a href="{p}pricing/">Pricing</a></div>
+<div><b>Site</b><br><a href="{p}how-it-works/">How it works</a><br><a href="{p}features/">Features</a><br><a href="{p}try/">Try it</a><br><a href="{p}sample-plan/">Sample plan</a><br><a href="{p}pricing/">Pricing</a></div>
 <div><b>Help</b><br><a href="{p}support/">Support</a><br><a href="{p}privacy/">Privacy</a><br><a href="{p}about/">About</a></div>
 </div><p><small>PlainAgri is general educational information, not a substitute for local agricultural advice or product labels. Always check local regulations before using any chemical input. &copy; EqualInformation LLC.</small></p></div></footer>
 {SHEET if sheet else ''}
+{''.join('<script src="'+p+'assets/js/'+x+'" defer></script>' for x in scripts.split())}
 <script src="{p}assets/js/site.js" defer></script>
+{('<script src="'+p+'assets/js/demos.js" defer></script>') if scripts else ''}
 </body></html>'''
     out=os.path.join(ROOT,slug,"index.html") if slug else os.path.join(ROOT,"index.html")
     os.makedirs(os.path.dirname(out),exist_ok=True)
@@ -92,7 +94,20 @@ page("","PlainAgri: Tell us where you are. We plan the rest.","PlainAgri designs
 <figure><div class="phone android"><img src="assets/img/app/android-water.jpg" alt="PlainAgri on Android, water section" loading="lazy"></div><figcaption>The same plan on Android</figcaption></figure>
 </div></div></section>
 
-<section><div class="wrap"><h2>Any climate, anywhere</h2>
+<section><div class="wrap"><h2>More than a plan: a whole toolbox</h2>
+<p class="lead">Around the plan sits a growing library that works the way a good extension officer would: diagnose a sick plant, size a water tank, pick a machine, look up a word.</p>
+<div class="grid">
+<div class="card"><h3>Diagnose</h3><p>Answer a few plain questions about what you see. Get likely causes, what to check, what to do and what to avoid. 38 walk-throughs.</p></div>
+<div class="card"><h3>Calculators</h3><p>Rainwater, irrigation, plant counts, seed rate, fertilizer, compost, storage and sowing dates, with the formula shown.</p></div>
+<div class="card"><h3>Equipment</h3><p>108 tools and machines from a dibber to a drone, filtered by scale, each with a manual alternative.</p></div>
+<div class="card"><h3>My Plots</h3><p>Save your plots and get a season task list. Optional reminders are created on your device and nothing leaves it.</p></div>
+<div class="card"><h3>Glossary</h3><p>234 terms in plain words. Tap an underlined word in any guide to see what it means.</p></div>
+<div class="card"><h3>Zoom, your way</h3><p>Make text anything from 50 to 300 percent, on every screen, on every device.</p></div>
+</div>
+<p><a class="btn" href="features/">See every feature</a> <a class="btn ghost" href="try/">Try a calculator or a diagnosis</a></p>
+<p class="est">In the library today: 515 places in 175 countries, 69 crops, 188 documents and 306 cited sources. Guides are AI-drafted and spot-checked; nothing is called expert-reviewed until a named expert signs off.</p></div></section>
+
+<section class="alt"><div class="wrap"><h2>Any climate, anywhere</h2>
 <p class="lead">Tropical rainforest to cold continental winters, arid deserts to mountain gardens. Your place resolves to its climate zone, and the advice changes with it.</p>
 <p><a href="climates/">Explore the climate zones &rarr;</a></p></div></section>
 
@@ -120,13 +135,17 @@ page("how-it-works","How PlainAgri works","From a location to a full, cited grow
 <h2 style="margin-top:40px">What a plan covers</h2>
 <ul class="tick"><li>Site and soil</li><li>What to grow here, ranked for your climate</li><li>A hemisphere-aware calendar</li><li>Planting method for your scale</li><li>Water</li><li>Soil fertility and the inputs typically available in your region</li><li>Pests and disease, with low-risk options first</li><li>Harvest method for your scale</li><li>Storage and post-harvest</li><li>Equipment and supply-chain defaults</li><li>Risks and next steps</li></ul>
 <div class="note"><b>Honest by design.</b> Where information is a regional estimate rather than a fact about your specific town, the app labels it as typical for your region. Chemical and fertilizer content always points you to local rules and product labels.</div>
-<p><a class="btn" href="../sample-plan/">See a sample plan</a></p></div></section>''')
+<h2 style="margin-top:40px">Beyond the plan</h2>
+<p class="lead">The plan is the spine. Around it the app adds tools you reach for through the season.</p>
+<ul class="tick"><li>Learn: guides, crops, diagnoses, calculators, equipment and a glossary, with one search across all of them</li><li>My Plots: save plots, see a season task list, and turn on reminders that are scheduled on your device</li><li>This month: what to sow, tend and harvest now, at the top of your plan</li><li>Export: turn a plan into a PDF with numbered sources</li><li>Zoom: text from 50 to 300 percent everywhere</li></ul>
+<p><a class="btn" href="../features/">See the features</a> <a class="btn ghost" href="../try/">Try it</a> <a class="btn ghost" href="../sample-plan/">See a sample plan</a></p></div></section>''')
 
 # ---------- scales ----------
 page("scales","Every scale of growing","From a single plant by hand to robotic and aerial farming: PlainAgri is being built to cover the whole range.",f'''
 <section class="hero"><div class="wrap"><span class="eyebrow">Scales</span><h1>Whatever you grow with, the plan fits.</h1>
 <p class="lead">Planting, watering and harvesting look very different on a balcony and on ten thousand hectares. PlainAgri tailors each part of the plan to the scale you choose, and always keeps a manual fallback in view.</p></div></section>
 <section><div class="wrap">{ladder()}
+<p>Each scale also has an equipment list in the app: 108 tools and machines in all, from hand tools and draft-animal gear to centre-pivot irrigation, combine harvesters, robotic weeders, drones and aerial seeding. Every item notes what it needs, the area it suits, and a manual alternative. <a href="../features/#equipment">See the equipment explorer &rarr;</a></p>
 <div class="note">Machine and aerial work carry safety and legal requirements that vary by country. The plan covers them in general terms and points you to local rules.</div></div></section>''')
 
 # ---------- climates ----------
@@ -165,8 +184,8 @@ page("pricing","Pricing","PlainAgri is a subscription app with a free outline an
 <section class="hero"><div class="wrap"><span class="eyebrow">Pricing</span><h1>Start free. Go Pro for the whole plan.</h1>
 <p class="lead">One app, one subscription. Prices below are placeholders and subject to change before launch.</p></div></section>
 <section><div class="wrap"><div class="grid">
-<div class="card"><h3>Free</h3><div class="price">$0</div><ul class="tick"><li>Choose your location</li><li>Your plan outline: every section, with a teaser</li><li>The library index</li></ul></div>
-<div class="card"><h3>Pro monthly</h3><div class="price">$4.99<small> / month</small></div><ul class="tick"><li>Full plan for your place</li><li>Full library</li><li>Saved plans</li></ul><p class="est">Subject to change.</p></div>
+<div class="card"><h3>Free</h3><div class="price">$0</div><ul class="tick"><li>Choose your location</li><li>Your plan outline: every section, with a teaser</li><li>Glossary and the equipment list</li><li>Two calculators: rainwater harvest and when to sow</li><li>Three diagnosis walk-throughs</li><li>Crop facts</li><li>Text zoom 50 to 300 percent</li></ul></div>
+<div class="card"><h3>Pro monthly</h3><div class="price">$4.99<small> / month</small></div><ul class="tick"><li>Full plan for your place</li><li>Crop growing guides and the full library</li><li>All 9 calculators and all 38 diagnoses</li><li>My Plots with season tasks and reminders</li><li>PDF plan export</li><li>Saved plans and results</li></ul><p class="est">Subject to change.</p></div>
 <div class="card"><h3>Pro yearly</h3><div class="price">$39.99<small> / year</small></div><ul class="tick"><li>Everything in Pro monthly</li><li>Lower cost over a year</li></ul><p class="est">Subject to change.</p></div></div>
 <p>Subscriptions are billed and managed through the App Store or Google Play, and can be cancelled there at any time. {SOON}</p></div></section>''')
 
@@ -195,6 +214,50 @@ page("about","About PlainAgri","PlainAgri is built by one highly experienced eng
 <p class="lead">PlainAgri is built by a highly experienced engineer, amplified by the world's most advanced AI agents: the craftsmanship of a dedicated expert with the capacity of a world-class engineering team.</p></div></section>
 <section><div class="wrap"><p>The mission is simple: anyone, anywhere, should be able to plan what to grow from the resources around them, in plain language, with sources they can check. PlainAgri is part of the Plain family of apps from EqualInformation.</p>
 <p class="est">Content is cited, and nothing is described as expert-reviewed until a named expert has signed off.</p></div></section>''')
+
+# ---------- features ----------
+def ph(img,alt,android=False):
+    return f'<figure class="phone{" android" if android else ""}"><img src="../assets/img/app/{img}" alt="{alt}" loading="lazy"></figure>'
+def feat(fid,title,tags,text,imgs,rev=False):
+    t="".join(f'<span class="tag{" pro" if x.startswith("Pro") else ""}">{x}</span>' for x in tags)
+    return f'<div class="feat{" rev" if rev else ""}" id="{fid}"><div><h2>{title}</h2><p>{t}</p>{text}</div><div class="feat-img">{imgs}</div></div>'
+FEATS=[
+ feat("learn","A library you can search",["Free: index and search","Pro: full guides"],"<p>Learn is one hub for Guides, Crops, Diagnose, Calculators, Equipment and Glossary, with a single search box across all of them. Plan and Saved link straight into it.</p><p class=\"est\">515 places, 69 crops, 188 documents and 306 cited sources are in the library today.</p>",ph("ios-learn.jpg","PlainAgri Learn hub with six tiles and a search box")+ph("ios-search.jpg","PlainAgri search results across crops, guides and glossary")),
+ feat("crops","Crop pages for your place",["Free: crop facts","Pro: growing guide"],"<p>Pick a crop to see when it can be sown and harvested where you are, with spacing, seed rate and water need clearly labelled as estimates. The growing guide and an Add to my plot button are in Pro.</p>",ph("ios-crop.jpg","PlainAgri crop page showing season, spacing and water need"),True),
+ feat("diagnose","Diagnose what you see",["Free: 3 walk-throughs","Pro: all 38"],"<p>Answer a few plain questions about the leaves, the fruit or the stored grain. You get likely or possible causes, what to check, what to do and what to avoid, each with sources. Results are never presented as a certainty, and chemical advice always points you to labels and local rules.</p><p><a class=\"btn ghost\" href=\"../try/#diagnose\">Walk a real diagnosis</a></p>",ph("ios-diagq.jpg","PlainAgri diagnosis question card")+ph("ios-diagr.jpg","PlainAgri diagnosis result with check, do and avoid")),
+ feat("calculators","Calculators with the formula showing",["Free: rainwater, when to sow","Pro: all 9"],"<p>Size a rainwater tank, work out how much irrigation water a bed needs, count plants and seed, plan fertilizer from a nutrient target, balance a compost heap, estimate storage space, and find your latest sowing date. Every calculator states its formula and assumptions and cites its sources.</p><p><a class=\"btn ghost\" href=\"../try/#calculators\">Try two of them</a></p>",ph("ios-calc.jpg","PlainAgri calculator with inputs, results and formula")),
+ feat("plots","My Plots and a season task list",["Pro"],"<p>Save each plot with its place, area, scale, water and crops. The app builds a season task list: prepare the soil, sow, harvest, with the calendar shifted correctly for your hemisphere and the equator. Reminders are optional, switched on per plot, and scheduled on your device. Nothing is sent anywhere.</p>",ph("ios-plot.jpg","PlainAgri plot with season tasks")+ph("and-reminder.jpg","Android reminder notification listing jobs due on plots",True),True),
+ feat("this-month","This month, at the top",["Free: outline","Pro: your plots"],"<p>Open the Plan tab and the first card says what to sow now, what to harvest now and what is coming next month for your place. With plots saved, your own open tasks join it.</p>",ph("and-this-month.jpg","PlainAgri This month card on Android",True)),
+ feat("glossary","Words explained, right where you read them",["Free"],"<p>234 terms in plain language. In plan and guide text, an underlined word opens a short definition with related terms and sources, then closes back to exactly where you were.</p>",ph("ios-term.jpg","PlainAgri glossary definition sheet over a guide")+ph("ios-doc.jpg","PlainAgri guide with underlined glossary terms"),True),
+ feat("equipment","Equipment from a dibber to a drone",["Free: the list"],"<p>108 tools and machines across all seven scales: hand tools, draft animals, small and large machinery, robotic and precision systems, and aerial work. Filter by scale and kind, and every entry says what it needs, the area it suits and the manual alternative.</p>",ph("ios-equip.jpg","PlainAgri equipment detail with needs, area and manual alternative")),
+ feat("export","Take your plan with you",["Pro"],"<p>Export a plan, or one plot's plan, as a PDF with every section and a numbered source list with web addresses, and share it with the system share sheet. Handy for a co-op meeting, an extension visit or a landlord.</p>",'<p class="est">The PDF is plain and printable: your place and setup, each plan section, and a numbered list of sources.</p>'),
+ feat("zoom","Text size that fits you",["Free, everywhere"],"<p>Every screen has an A- and A+ control with the exact percentage, from 50 to 300 percent. It scales the whole app, including the tab bar and sheets, on phones, tablets and foldables, and layouts reflow instead of cutting words off. <a href=\"../try/#zoom\">Try the zoom</a>.</p>",ph("zoom-50.jpg","PlainAgri plan at 50 percent text size")+ph("zoom-100.jpg","PlainAgri plan at 100 percent text size")+ph("zoom-300.jpg","PlainAgri plan at 300 percent text size"),True),
+ feat("devices","Fluid on every device",["Free"],"<p>Layouts adapt from small phones to tablets: reading width is capped and centred on wide screens, bars tuck away while you scroll at large text sizes, and the app rotates on iPad and Android. Checked on a range of simulated phones, tablets and a foldable.</p>",f'<figure class="phone" style="width:min(420px,90vw);aspect-ratio:auto"><img src="../assets/img/app/ipad-plan.jpg" alt="PlainAgri plan on an iPad" loading="lazy" style="object-fit:contain"></figure>'),
+]
+page("features","Features: what PlainAgri does","Everything in the first release of PlainAgri: plan, library, diagnose, calculators, equipment, My Plots, glossary, export and text zoom, with real screenshots.",f'''
+<section class="hero"><div class="wrap"><span class="eyebrow">Features</span><h1>A plan, and the tools to carry it out.</h1>
+<p class="lead">These screens are from the first-release build on iPhone and Android. It is not in the stores yet. Free shows you enough to judge it; Pro opens the whole library.</p>
+<p><a class="btn" href="../try/">Try it in your browser</a> <a class="btn ghost" href="../pricing/">Free and Pro</a></p></div></section>
+<section><div class="wrap">{"".join(FEATS)}
+<p class="est">Screens show sample places and plots. Guides are AI-drafted and spot-checked; nothing is called expert-reviewed until a named expert signs off. Always confirm local conditions and product labels.</p></div></section>''')
+
+# ---------- try ----------
+page("try","Try it: calculators, diagnosis and zoom","Try PlainAgri in your browser: two real calculators, a real diagnosis walk-through and the text zoom. The app has the full library.",f'''
+<section class="hero"><div class="wrap"><span class="eyebrow">Try it</span><h1>A taste of the app.</h1>
+<p class="lead">These are working samples of three things in PlainAgri. Source chips open a viewer sheet, just like in the app. The app has the rest: nine calculators, 38 diagnoses, the plan for your exact place and the full library.</p></div></section>
+
+<section id="calculators"><div class="wrap"><h2>Two calculators</h2><div class="card" id="calc-demo" aria-live="polite"></div></div></section>
+
+<section class="alt" id="diagnose"><div class="wrap"><h2>Walk a diagnosis: leaves turning yellow</h2><p class="lead">This is one of the three free walk-throughs. Pick what matches what you see.</p><div class="card" id="diag-demo"></div></div></section>
+
+<section id="zoom"><div class="wrap"><h2>Text zoom, 50 to 300 percent</h2>
+<p class="lead">The app has this on every screen. Here is a small mock-up: change the size and watch the text and even the tab bar follow. The percentage always shows where you are.</p>
+<div class="zframe" id="zoom-demo"><div class="zview" tabindex="0" aria-label="Sample plan text that scales">
+<div class="zbar"><button type="button" data-z="minus" aria-label="Smaller text">A-</button><button type="button" class="zpct" aria-label="Reset text size to 100 percent">100%</button><button type="button" data-z="plus" aria-label="Larger text">A+</button></div>
+<h3>Your plan</h3><p>Nairobi, Kenya. Rain-fed, hand tools, food for a household.</p><p>Plant maize and beans at the start of the long rains, and mulch to keep the soil moist between showers.</p></div>
+<div class="ztabs" aria-hidden="true"><span>Plan</span><span>Learn</span><span>Saved</span><span>About</span></div></div>
+<p class="est">Demo only: it changes this mock-up, not the page.</p></div></section>
+''',sheet=True,scripts="demo-data.js")
 
 # ---------- sitemap/robots ----------
 slugs=[""]+[s for s,_ in NAV]+["privacy","support"]

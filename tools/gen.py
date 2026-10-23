@@ -85,11 +85,11 @@ page("","PlainAgri: Tell us where you are. We plan the rest.","PlainAgri designs
 <section class="alt"><div class="wrap"><h2>See it in the app</h2>
 <p class="lead">Real screens from the first-release build on iPhone and Android. These are a taste: the full plan, the whole library and saved plans are in the app.</p>
 <div class="shots">
-<figure><div class="phone"><img src="assets/img/app/plan.jpg" alt="PlainAgri plan screen for Nairobi showing climate zone, setup and plan sections" loading="lazy"></div><figcaption>Your place, your setup, your plan</figcaption></figure>
-<figure><div class="phone"><img src="assets/img/app/crops.jpg" alt="PlainAgri what to grow here screen" loading="lazy"></div><figcaption>Crops that suit your climate</figcaption></figure>
-<figure><div class="phone"><img src="assets/img/app/machinery.jpg" alt="PlainAgri guidance for machinery scale" loading="lazy"></div><figcaption>Methods that match your scale</figcaption></figure>
-<figure><div class="phone"><img src="assets/img/app/sources.jpg" alt="PlainAgri in-app source viewer opened at 80 percent height" loading="lazy"></div><figcaption>Every source opens in the app</figcaption></figure>
-<figure><div class="phone android"><img src="assets/img/app/android-water.jpg" alt="PlainAgri on Android, water section" loading="lazy"></div><figcaption>The same plan on Android</figcaption></figure>
+<figure><div class="phone"><img src="assets/img/app/plan.jpg?v=2" alt="PlainAgri plan screen for Nairobi showing climate zone, setup and plan sections" loading="lazy"></div><figcaption>Your place, your setup, your plan</figcaption></figure>
+<figure><div class="phone"><img src="assets/img/app/crops.jpg?v=2" alt="PlainAgri what to grow here screen" loading="lazy"></div><figcaption>Crops that suit your climate</figcaption></figure>
+<figure><div class="phone"><img src="assets/img/app/machinery.jpg?v=2" alt="PlainAgri guidance for machinery scale" loading="lazy"></div><figcaption>Methods that match your scale</figcaption></figure>
+<figure><div class="phone"><img src="assets/img/app/sources.jpg?v=2" alt="PlainAgri in-app source viewer opened at 80 percent height" loading="lazy"></div><figcaption>Every source opens in the app</figcaption></figure>
+<figure><div class="phone android"><img src="assets/img/app/android-water.jpg?v=2" alt="PlainAgri on Android, water section" loading="lazy"></div><figcaption>The same plan on Android</figcaption></figure>
 </div></div></section>
 
 <section><div class="wrap"><h2>More than a plan: a whole toolbox</h2>
@@ -215,7 +215,7 @@ page("about","About PlainAgri","PlainAgri is built by one highly experienced eng
 
 # ---------- features ----------
 def ph(img,alt,android=False):
-    return f'<figure class="phone{" android" if android else ""}"><img src="../assets/img/app/{img}" alt="{alt}" loading="lazy"></figure>'
+    return f'<figure class="phone{" android" if android else ""}"><img src="../assets/img/app/{img}?v=2" alt="{alt}" loading="lazy"></figure>'
 def feat(fid,title,tags,text,imgs,rev=False):
     t="".join(f'<span class="tag{" pro" if x.startswith("Pro") else ""}">{x}</span>' for x in tags)
     return f'<div class="feat{" rev" if rev else ""}" id="{fid}"><div><h2>{title}</h2><p>{t}</p>{text}</div><div class="feat-img">{imgs}</div></div>'
@@ -231,7 +231,7 @@ FEATS=[
  feat("export","Take your plan with you",["Pro"],"<p>Export a plan, or one plot's plan, as a PDF with every section and a numbered source list with web addresses, and share it with the system share sheet. Handy for a co-op meeting, an extension visit or a landlord.</p>",'<p class="est">The PDF is plain and printable: your place and setup, each plan section, and a numbered list of sources.</p>'),
  feat("zoom","Text size that fits you",["Free, everywhere"],"<p>Every screen has an A- and A+ control with the exact percentage, from 50 to 300 percent. It scales the whole app, including the tab bar and sheets, on phones, tablets and foldables, and layouts reflow instead of cutting words off. <a href=\"../try/#zoom\">Try the zoom</a>.</p>",ph("zoom-50.jpg","PlainAgri plan at 50 percent text size")+ph("zoom-100.jpg","PlainAgri plan at 100 percent text size")+ph("zoom-300.jpg","PlainAgri plan at 300 percent text size"),True),
  feat("themes","Your colours, NutriSize by default",["Free, everywhere"],"<p>The app opens in the clean NutriSize Health look: white and soft green with deep green and blue accents, always light. If you prefer something else, Appearance in the About tab offers Field (warm earth tones) and Night (dark). Your choice is saved on your device.</p>","",True),
- feat("devices","Fluid on every device",["Free"],"<p>Layouts adapt from small phones to tablets: reading width is capped and centred on wide screens, bars tuck away while you scroll at large text sizes, and the app rotates on iPad and Android. Checked on a range of simulated phones, tablets and a foldable.</p>",f'<figure class="phone" style="width:min(420px,90vw);aspect-ratio:auto"><img src="../assets/img/app/ipad-plan.jpg" alt="PlainAgri plan on an iPad" loading="lazy" style="object-fit:contain"></figure>'),
+ feat("devices","Fluid on every device",["Free"],"<p>Layouts adapt from small phones to tablets: reading width is capped and centred on wide screens, bars tuck away while you scroll at large text sizes, and the app rotates on iPad and Android. Checked on a range of simulated phones, tablets and a foldable.</p>",f'<figure class="phone" style="width:min(420px,90vw);aspect-ratio:auto"><img src="../assets/img/app/ipad-plan.jpg?v=2" alt="PlainAgri plan on an iPad" loading="lazy" style="object-fit:contain"></figure>'),
 ]
 page("features","Features: what PlainAgri does","Everything in the first release of PlainAgri: plan, library, diagnose, calculators, equipment, My Plots, glossary, export and text zoom, with real screenshots.",f'''
 <section class="hero"><div class="wrap"><span class="eyebrow">Features</span><h1>A plan, and the tools to carry it out.</h1>

@@ -2,7 +2,7 @@ import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE="https://equalinformation.com/plain-agri-site/"
 NAV=[("how-it-works","How it works"),("features","Features"),("try","Try it"),("scales","Scales"),("climates","Climates"),("sample-plan","Sample plan"),("pricing","Pricing"),("about","About")]
-SOON='<div class="badges"><div class="badge"><b>App Store</b>Coming soon</div><div class="badge"><b>Google Play</b>Coming soon</div></div>'
+SOON='<div class="badges"><div class="badge"><b>App Store</b>Coming soon</div><a class="badge live" href="https://play.google.com/store/apps/details?id=com.equalinformation.plainagri.app" rel="noopener"><b>Google Play</b>Get it on Google Play</a></div>'
 SHEET='''<div class="sheet-back"></div>
 <div class="sheet" role="dialog" aria-modal="true" aria-label="Source viewer (demo)" aria-hidden="true">
 <div class="sheet-grab"></div>
@@ -60,14 +60,14 @@ def ladder():
     return '<ul class="ladder">'+"".join(f'<li><span class="rung" style="--w:{i*12}"></span><div><b>{n} <span class="pill">{t}</span></b><span>{d}</span></div></li>' for i,(n,t,d) in enumerate(LADDER))+'</ul>'
 
 # ---------- index ----------
-page("","PlainAgri: Tell us where you are. We plan the rest.","PlainAgri designs a complete, cited growing plan from your location: any climate, any scale, from a single pot to robotic farming. Coming to iOS and Android.",f'''
+page("","PlainAgri: Tell us where you are. We plan the rest.","PlainAgri designs a complete, cited growing plan from your location: any climate, any scale, from a single pot to robotic farming. Available on Google Play; iPhone and iPad coming soon.",f'''
 <section class="hero"><div class="wrap">
 <span class="eyebrow">Coming to iPhone and Android</span>
 <h1>Tell us where you are.<br>PlainAgri plans the rest.</h1>
 <p class="lead">Give the app your location. It works out your climate, what is realistic to grow, and which inputs and methods fit the resources around you, then lays it all out as a plan you can follow. Every claim is cited.</p>
 <p><a class="btn" href="sample-plan/">See a sample plan</a> &nbsp; <a class="btn ghost" href="how-it-works/">How it works</a></p>
 {SOON}
-<p class="est">The first release is in development. Features on this site are what the first release is being built to do.</p>
+<p class="est">Now available on Google Play for Android. The iPhone and iPad version is coming soon.</p>
 </div></section>
 
 <section><div class="wrap"><h2>Three steps, no jargon</h2><div class="grid">
@@ -199,7 +199,7 @@ page("privacy","Privacy","PlainAgri has no accounts, no analytics and no ad trac
 
 # ---------- support ----------
 page("support","Support","Get help or send feedback about PlainAgri.",f'''
-<section class="hero"><div class="wrap"><h1>Support</h1><p class="lead">The app is not released yet. Questions and feedback are welcome now.</p></div></section>
+<section class="hero"><div class="wrap"><h1>Support</h1><p class="lead">PlainAgri is available on Google Play. Questions and feedback are welcome.</p></div></section>
 <section><div class="wrap"><p><a class="btn" href="mailto:support@equalinformation.com?subject=PlainAgri%20Feedback">Email us</a></p>
 <h2>Common questions</h2>
 <h3>Does it work offline?</h3><p>That is the design: the baseline library and plan are meant to work without signal.</p>

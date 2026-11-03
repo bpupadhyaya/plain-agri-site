@@ -22,7 +22,7 @@ section{padding:72px 0}section.alt{background:var(--paper-tint);border-top:1px s
 .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green-600);background:var(--green-100);border-radius:999px;padding:4px 14px;margin-bottom:14px}
 .btn{display:inline-block;margin:0 .5rem .6rem 0;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid var(--green-600);background:var(--green-600);color:#fff}
 .btn:hover{background:var(--green-700);border-color:var(--green-700);color:#fff;text-decoration:none}.btn.ghost{background:transparent;color:var(--green-700)}.btn.ghost:hover{background:var(--green-100);color:var(--green-700)}
-.badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.badge{border:2px dashed var(--line);border-radius:12px;padding:10px 16px;color:var(--muted);font-size:.9rem;background:var(--card)}.badge b{display:block;color:var(--ink)}
+.badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.badge{border:2px dashed var(--line);border-radius:12px;padding:10px 16px;color:var(--muted);font-size:.9rem;background:var(--card)}.badge b{display:block;color:var(--ink)}.badge.live{border-style:solid;border-color:var(--brand,#0b3d2e);text-decoration:none;color:var(--ink)}.badge.live:hover{background:#eef6f1}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:var(--shadow)}.card p{font-size:15px;color:var(--ink-soft)}
 .card .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--green-100);color:var(--green-700);font-weight:800;margin-bottom:10px}
